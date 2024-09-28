@@ -1,0 +1,75 @@
+create database sarathi;
+
+
+create table if not exists clients
+(
+    id       int auto_increment
+        primary key,
+    name     varchar(255) not null,
+    email    varchar(255) not null,
+    phone    varchar(50)  null,
+    address  text         null,
+    category varchar(50)  null
+)
+    auto_increment = 19;
+
+create table if not exists company
+(
+    id          int auto_increment
+        primary key,
+    name        varchar(255) not null,
+    pan         varchar(50)  not null,
+    address     text         null,
+    phone       varchar(50)  null,
+    email       varchar(255) null,
+    types       varchar(100) null,
+    category    varchar(100) null,
+    irdUsername varchar(100) null,
+    irdPassword varchar(100) null,
+    irdPhone    varchar(50)  null,
+    irdEmail    varchar(255) null,
+    remarks     text         null,
+    clientsId   int          null,
+    constraint company_ibfk_1
+        foreign key (clientsId) references clients (id)
+            on update cascade on delete cascade
+)
+    auto_increment = 8;
+
+create index clientsId
+    on company (clientsId);
+
+create table if not exists companyFile
+(
+    id         int auto_increment
+        primary key,
+    companyId  int                                 not null,
+    FileName   varchar(255)                        not null,
+    FileType   varchar(100)                        not null,
+    uploadDate timestamp default CURRENT_TIMESTAMP null,
+    constraint companyFile_ibfk_1
+        foreign key (companyId) references company (id)
+);
+
+create index companyId
+    on companyFile (companyId);
+
+create table if not exists users
+(
+    id         int auto_increment
+        primary key,
+    name       varchar(100)                         not null,
+    username   varchar(50)                          not null,
+    phone      varchar(15)                          null,
+    email      varchar(100)                         not null,
+    address    text                                 null,
+    active     tinyint(1) default 1                 null,
+    password   varchar(255)                         not null,
+    created_at timestamp  default CURRENT_TIMESTAMP null,
+    updated_at timestamp  default CURRENT_TIMESTAMP null on update CURRENT_TIMESTAMP,
+    constraint email
+        unique (email),
+    constraint username
+        unique (username)
+);
+
