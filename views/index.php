@@ -42,7 +42,7 @@ ob_start();
                 </form>
             </div>
             <div class="col-3">
-                <a href="/views/add-user.php" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-init data-mdb-ripple-color="dark">Add User</a>
+                <a href="/views/register.php" class="btn btn-outline-primary btn-rounded" data-mdb-ripple-init data-mdb-ripple-color="dark">Add User</a>
             </div>
         </div>
     </div>
