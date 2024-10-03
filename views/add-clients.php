@@ -53,10 +53,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO clients (name, email, phone, address, category) VALUES ('$clientName', '$clientEmail', '$clientPhone', '$clientAddress', '$clientCategory')";
         $result = mysqli_query($conn, $sql);
         if ($result) {
-            header('Location: clients.php');
+            header('Location: /views/index.php');
             exit();
         } else{
-            header('Location: clients.php');
+            header('Location: /views/index.php');
             exit();
         }
     }

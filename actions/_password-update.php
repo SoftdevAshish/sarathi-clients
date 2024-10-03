@@ -1,6 +1,6 @@
 <?php
 include('config.php');
-
+$conn=getDbConnection();
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_POST['user_id'];
     $newPassword = $_POST['new_password'];
@@ -15,17 +15,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Hash the new password
     $hashedPassword = password_hash($newPassword, PASSWORD_BCRYPT);
 
-    $conn=getDbConnection();
+
     $sql = "UPDATE users SET password = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('si', $hashedPassword, $userId);
 
     if ($stmt->execute()) {
         // Redirect to a success page or show a success message
-        header('Location: /views/index.php');
+        header('Location: /views/users.php');
         exit();
     } else {
-        echo "Failed to reset password.";
+        header('Location: /views/users.php');
+        exit();
     }
 
     $stmt->close();

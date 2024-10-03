@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("sssssi", $clientName, $clientEmail, $clientPhone, $clientAddress, $clientCategory, $clientId);
 
         if ($stmt->execute()) {
-            header('Location: clients.php');
+            header('Location: /views/index.php');
             exit();
         } else {
             echo "<div class='alert alert-danger'>Error updating client: " . $stmt->error . "</div>";

@@ -52,7 +52,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         header('Location: /views/view-clients.php?id='.$data['clientsId'].'&tab=2');
         exit();
     } else {
-        echo "<div class='alert alert-danger'>Error adding company: " . $stmt->error . "</div>";
+//        echo "<div class='alert alert-danger'>Error adding company: " . $stmt->error . "</div>";
+        header('Location: /views/view-clients.php?id='.$data['clientsId'].'&tab=2');
     }
 
     // Close the statement

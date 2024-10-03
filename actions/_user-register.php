@@ -27,10 +27,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bind_param("ssssss", $name, $username, $email, $phone, $address, $password);
 
         if ($stmt->execute()) {
-            header('Location:../views/index.php');
+            header('Location:../views/users.php');
             exit();
         } else {
-            echo "Error: " . $conn->error;
+            header("Location: ../views/users.php");
+            exit;
         }
     }
 }

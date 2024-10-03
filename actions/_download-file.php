@@ -7,7 +7,7 @@ include 'config.php';
 if (isset($_GET['file'])) {
     $fileName = basename($_GET['file']);
     $filePath = '../uploads/' . $fileName;
-
+    $companyId = $_GET['cid'];
     // Check if the file exists
     if (file_exists($filePath)) {
         // Set headers to initiate a download
@@ -34,13 +34,16 @@ if (isset($_GET['file'])) {
 
         // Read and output the file content
         readfile($filePath);
+        header("Location: ../views/view-client.php?id=" . $companyId."&tab=2");
         exit;
     } else {
         // File not found
-        echo "File not found.";
+        header("Location: ../views/index.php");
+        exit;
     }
 } else {
-    echo "No file specified.";
+    header("Location: ../views/index.php");
+    exit;
 }
 
 ob_end_flush(); // Flush the output buffer at the end

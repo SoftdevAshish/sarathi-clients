@@ -27,6 +27,11 @@ if (!isset($_SESSION['username'])) {
     />
     <!-- MDB -->
     <link rel="stylesheet" href="/assets/css/mdb.min.css"/>
+    <style>
+        body, table {
+            background-color: rgba(124, 124, 124, 0.13) !important;
+        }
+    </style>
 </head>
 <body>
 <div class="container">
@@ -61,7 +66,7 @@ if (!isset($_SESSION['username'])) {
                 <!-- Left links -->
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link fs-4" href="/views/clients.php">Clients</a>
+                        <a class="nav-link fs-4" href="/views/users.php">Users</a>
                     </li>
                 </ul>
                 <!-- Left links -->

@@ -12,7 +12,7 @@ if (isset($_GET['id']) && isset($_GET['status'])) {
 
     if ($stmt->execute()) {
         // Redirect back to the user management page after update
-        header('Location:../views/index.php');
+        header('Location:../views/users.php');
         exit();
     } else {
         echo "Failed to update user status.";

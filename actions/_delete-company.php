@@ -17,8 +17,10 @@ if (isset($_GET['id'])) {
         header("Location: /views/view-clients.php?id=" . $clientId . '&tab=2');
         exit;
     } else {
-        echo "Error deleting client: " . $conn->error;
+        header("Location: /views/view-clients.php?id=" . $clientId . '&tab=2');
+        exit;
     }
 } else {
-    echo "No client ID provided!";
+    header("Location: /views/index.php");
+    exit;
 }

@@ -45,7 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($updateQuery->execute()) {
         echo "Company updated successfully!".$id;
-//        header("Location: clients.php");
+//        header("Location: users.php");
         header('Location: /views/view-clients.php?id='.$company['clientsId'].'&tab=2');
 
         exit;
@@ -123,7 +123,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                             <a href="/views/view-clients.php?id=<?= $company['clientsId'] ?>.&tab=2" class="btn btn-secondary">Back to Company</a>
                         </div>
 <!--                        <button type="submit" class="btn btn-primary">Update Company</button>-->
-<!--                        <a href="/views/view-clients.php?id=--><?php //= $company['clientsId'] ?><!--.&tab=2" class="btn btn-secondary">Back to Company</a>-->
+<!--                        <a href="/views/view-users.php?id=--><?php //= $company['clientsId'] ?><!--.&tab=2" class="btn btn-secondary">Back to Company</a>-->
                     </form>
             </div>
             <div class="col-3"></div>

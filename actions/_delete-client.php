@@ -13,10 +13,12 @@ if (isset($_GET['id'])) {
 
     if ($deleteQuery->execute()) {
         // Success: Redirect to the clients list page
-        header("Location: /views/clients.php");
+        header("Location: /views/index.php");
         exit;
     } else {
-        echo "Error deleting client: " . $conn->error;
+//        echo "Error deleting client: " . $conn->error;
+        header("Location: /views/index.php");
+        exit;
     }
 } else {
     echo "No client ID provided!";

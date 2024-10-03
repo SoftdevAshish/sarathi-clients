@@ -60,24 +60,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             header("Location: ../views/view-clients.php?id=" . $companyDetails['clientsId'] . "&tab=2");
                             exit;
                         } else {
-                            echo "No company found with the provided ID.";
+                            header("Location: ../views/index.php");
+                            exit;
                         }
                     } else {
-                        echo "Error executing company query: " . $sql->error;
+                        header("Location: ../views/index.php");
+                        exit;
                     }
                 } else {
-                    echo "Database insertion error: " . $query->error; // Change to $query
+                    header("Location: ../views/index.php");
+                    exit;
                 }
             } else {
-                echo "There was an error moving the file to the upload directory.";
+                header("Location: ../views/index.php");
+                exit;
             }
         } else {
-            echo "File type not allowed. Allowed types: " . implode(", ", $allowedFileExtensions);
+            header("Location: ../views/index.php");
+            exit;
         }
     } else {
-        echo "No file uploaded or there was an error during upload.";
+        header("Location: ../views/index.php");
+        exit;
     }
 } else {
-    echo "Invalid request method!";
+    header("Location: ../views/index.php");
+    exit;
 }
 ?>

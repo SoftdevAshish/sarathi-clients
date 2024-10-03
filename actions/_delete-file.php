@@ -40,22 +40,27 @@ if (isset($_GET['id'])) {
                             exit;
                         }
 //                    echo "File deleted successfully.";
-//                    header("Location: ../views/view-clients.php");
+//                    header("Location: ../views/view-users.php");
 //                    exit;
                     } else {
-                        echo "Error deleting record from database.";
+                        header("Location: ../views/index.php");
+                        exit;
                     }
                 } else {
-                    echo "Error deleting file from the server.";
+                    header("Location: ../views/index.php");
+                    exit;
                 }
             } else {
-                echo "File does not exist.";
+                header("Location: ../views/index.php");
+                exit;
             }
         } else {
-            echo "No file found with that ID.";
+            header("Location: ../views/index.php");
+            exit;
         }
     } else {
-        echo "No file ID specified.";
+        header("Location: ../views/index.php");
+        exit;
     }
 }
 ?>

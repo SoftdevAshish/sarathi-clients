@@ -222,7 +222,7 @@ if ($clientId) {
                                                                                     <h5 class="card-title d-inline"><?= htmlspecialchars($companyFile['FileType']) ?></h5>
                                                                                 </div>
                                                                                 <div class="col d-inline text-end">
-                                                                                    <a href="../actions/_download-file.php?file=<?= $companyFile['FileName'] ?>"
+                                                                                    <a href="../actions/_download-file.php?file=<?= $companyFile['FileName'] ?>&cid=<?= $company['id'] ?>"
                                                                                        class="btn btn-light btn-floating"
                                                                                        data-mdb-ripple-init
                                                                                        title="Company File Upload.">
@@ -357,7 +357,7 @@ if ($clientId) {
     </div>
     <div class="row my-5">
         <div class="col my-5 text-end">
-            <a href="clients.php" class="btn btn-secondary">Back to
+            <a href="users.php" class="btn btn-secondary">Back to
                 Clients</a>
         </div>
     </div>
